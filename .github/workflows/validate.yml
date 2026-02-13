@@ -1,0 +1,63 @@
+name: Validate Repository
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check required files exist
+        run: |
+          echo "Checking repository structure..."
+          if [ ! -f SKILL.md ]; then echo "❌ Missing SKILL.md" && exit 1; fi
+          if [ ! -f install.sh ]; then echo "❌ Missing install.sh" && exit 1; fi
+          if [ ! -f requirements.txt ]; then echo "❌ Missing requirements.txt" && exit 1; fi
+          echo "✅ All required files present"
+
+      - name: Validate SKILL.md frontmatter
+        run: |
+          echo "Checking SKILL.md frontmatter..."
+          if ! grep -q '^---$' SKILL.md; then
+            echo "❌ SKILL.md does not have YAML frontmatter delimiter (---)"
+            exit 1
+          fi
+          echo "✅ SKILL.md has YAML frontmatter"
+
+      - name: Count tools and skills
+        run: |
+          echo "\nRepository contents:"
+          echo "Tools: $(find tools -name '*.py' | wc -l) Python files"
+          echo "Skills: $(find skills -name 'SKILL.md' | wc -l) skill directories"
+          echo "Total files: $(find . -type f ! -path './.git/*' | wc -l)"
+
+      - name: Basic Python syntax check
+        run: |
+          echo "Checking Python syntax..."
+          for pyfile in tools/*.py; do
+            if python3 -m py_compile "$pyfile"; then
+              echo "  ✅ $pyfile"
+            else
+              echo "  ❌ $pyfile"
+              exit 1
+            fi
+          done
+          echo "✅ All Python files have valid syntax"
+
+      - name: Markdown lint check (optional)
+        run: |
+          echo "Skipping markdown lint (no mdl installed)"
+          # If mdl is installed, uncomment:
+          # gem install mdl
+          # mdl SKILL.md
+
+      - name: Success
+        run: echo "🎉 Repository validation passed!"
