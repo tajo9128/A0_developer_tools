@@ -1,0 +1,118 @@
+---
+name: "elite-developer-tools"
+description: "A comprehensive collection of 20+ tools for Agent Zero enabling advanced development capabilities including codebase indexing, memory management, security auditing, performance profiling, infrastructure operations, and workflow automation. Use when you need elite-level software development, coding, or system management tasks."
+version: "1.0.0"
+author: "Agent Zero Community"
+tags: ["developer", "tools", "coding", "memory", "security", "performance", "infrastructure", "workflow"]
+trigger_patterns:
+  - "use elite tools"
+  - "developer tools"
+  - "codebase index"
+  - "memory reflect"
+  - "security check"
+  - "performance profile"
+  - "iac ops"
+  - "db explorer"
+  - "workflow macros"
+  - "api explorer"
+  - "advanced coding"
+  - "elite developer"
+---
+
+# Elite Developer Tools
+
+## Overview
+This skill provides access to over 20 specialized tools for Agent Zero, covering full-stack development, memory enhancement, security, performance, and infrastructure operations. All tools are ready to use once installed.
+
+## Tools Included
+
+### Phase 3 – Deep IDE Integration
+- **codebase_indexer.py**: Indexes codebases for search and navigation.
+- **context_manager.py**: Manages context windows and smart prompting.
+- **doc_manager.py**: Handles documentation generation and updates.
+- **refactor_tool.py**: Renames symbols and refactors code across files.
+- **env_ops.py**: Manages environment variables and configuration.
+
+### Phase 4 – Memory Integration
+- **memory_reflect.py**: Extracts lessons from reasoning and saves as solution memories.
+- **memory_consolidate.py**: Intelligently merges and organizes memories.
+- **memory_query.py**: Enhances memory retrieval for past solutions.
+
+### Phase 5 – Elite Developer Tools
+- **security_checker.py**: Audits dependencies and scans for exposed secrets.
+- **perf_profiler.py**: Profiles code performance and runs benchmarks.
+- **knowledge_synthesizer.py**: Digests URLs into permanent knowledge memories.
+- **iac_ops.py**: Orchestrates Docker Compose and checks environment health.
+
+### Phase 6 – Data & Workflow Autonomy
+- **db_explorer.py**: Read‑only exploration of SQLite databases.
+- **workflow_macros.py**: Guided high‑level routines for feature implementation and hotfixes.
+- **watchdog_notifier.py**: Monitors file changes autonomously.
+- **api_explorer.py**: Discovers and reads OpenAPI/Swagger specs.
+
+### Updated Core Tools
+- **dep_manager.py**: Handles pip/npm dependency installation and listing.
+- **test_runner.py**: Runs pytest/unittest with parsed feedback.
+- **linter.py**: Performs linting (flake8, pylint, etc.).
+- **github_ops.py**: GitHub operations with integrated credentials.
+- **version_manager.py**: Version management with GitHub release support.
+
+## Included Skills
+
+This bundle also includes 15 domain‑specific skills for specialized tasks:
+
+### Backend & Database
+- **backend-architect** – Expert backend architect specializing in scalable API design, microservices, and distributed systems.
+- **backend-patterns** – Backend architecture patterns, API design, database optimization, and server-side best practices for Node.js, Express, and Next.js API routes.
+- **database-architect** – Expert database architect specializing in data layer design, technology selection, and scalable database architectures.
+- **fastapi-pro** – Build high-performance async APIs with FastAPI, SQLAlchemy 2.0, and Pydantic V2.
+- **postgresql** – Design PostgreSQL-specific schemas with best practices, data types, indexing, constraints, and performance patterns.
+
+### Frontend & UI
+- **frontend-developer** – Build React components, responsive layouts, and client-side state management with React 19 and Next.js 15.
+- **frontend-patterns** – Frontend development patterns for React, Next.js, state management, and performance optimization.
+- **react-patterns** – Modern React patterns and principles: hooks, composition, performance, TypeScript best practices.
+- **react-state-management** – Master modern React state management with Redux Toolkit, Zustand, Jotai, and React Query.
+- **tailwind-design-system** – Build scalable design systems with Tailwind CSS, design tokens, and component libraries.
+- **typescript-advanced-types** – Master TypeScript's advanced type system including generics, conditional types, and utility types.
+- **ui-ux-designer** – Create interface designs, wireframes, and design systems with user research and accessibility standards.
+
+### DevOps & Infrastructure
+- **docker-expert** – Docker containerization expert with multi-stage builds, image optimization, container security, and Docker Compose orchestration.
+- **git-advanced-workflows** – Master advanced Git workflows including rebasing, cherry-picking, bisect, worktrees, and reflog.
+- **version-control** – Git best practices, branching strategies (GitFlow, GitHub Flow), and collaborative workflows.
+
+These skills are available in the `skills/` subdirectory and can be used individually or as part of this comprehensive bundle.
+
+## Installation
+
+1. **Copy Tools**: Copy all Python files from the `tools/` directory in this skill to your Agent Zero's tools directory (typically `/a0/python/tools/`).
+   ```bash
+   cp -r tools/*.py /path/to/your/agentzero/python/tools/
+   ```
+
+2. **Install Dependencies**: Install required Python packages.
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. **Skill Activation**: Place this entire skill directory in your Agent Zero skills directory (`/a0/usr/skills/`). The skill will be automatically loaded on agent initialization.
+
+## Usage
+Once installed, the tools are available through Agent Zero's tool system. Use them in tasks by referring to their functions.
+
+### Example Commands
+- To index a codebase: `Use the codebase_indexer tool on /path/to/project`
+- To audit security: `Run security_checker on the current directory`
+- To profile performance: `Use perf_profiler to analyze script.py`
+
+## Dependencies
+All dependencies are listed in `requirements.txt`. Key packages include sentence_transformers, langchain-community, browser-use, gitpython, and others.
+
+## Notes
+- Ensure Agent Zero has necessary permissions (e.g., for Docker operations).
+- Some tools may require additional configuration (e.g., GitHub credentials in github_ops.py).
+- Test tools in a safe environment before production use.
+
+## Support
+For issues or contributions, refer to the GitHub repository where this skill is hosted.
