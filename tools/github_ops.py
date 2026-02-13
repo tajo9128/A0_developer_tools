@@ -9,13 +9,12 @@ import urllib.error
 # GitHub credentials provided by user
 GITHUB_USER = 'tajo9128'
 GITHUB_EMAIL = 'tajo9128@gmail.com'
-GITHUB_TOKEN = 'ENV_GITHUB_TOKEN'
 
 class GitHubOps(Tool):
     def _api_call(self, endpoint, method="GET", data=None):
-        token = os.environ.get("GITHUB_TOKEN") or GITHUB_TOKEN
+        token = os.environ.get("GITHUB_TOKEN")
         if not token:
-            return None, "Error: GITHUB_TOKEN environment variable is not set."
+            raise ValueError("GITHUB_TOKEN environment variable is required")
 
         repo_full_name = self.args.get("repo")
         if not repo_full_name:
